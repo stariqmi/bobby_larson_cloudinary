@@ -1,0 +1,17 @@
+{
+  "name": "photo_cloudinary",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-ui": "~1.11.3",
+    "jquery": "~2.1.3"
+  }
+}
