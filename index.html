@@ -1,13 +1,43 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="/static/main.css">
-	</head>
-	<body>
-		<!-- Parent for File selector -->
-		<div id="file-selector-parent"></div>
-		<div id="cropper-a"></div>
+		
+		<!-- JS Libraries -->
 		<script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript" src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="/static/bundle.js"></script>
+		<script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+
+		<!-- AngularJS components -->
+		<script type="text/javascript" src="/src/js/app.js"></script>
+		<script type="text/javascript" src="/src/js/directives/fileSelector.js"></script>
+		<script type="text/javascript" src="/src/js/directives/cropper.js"></script>
+
+	</head>
+	<body ng-app="app">
+		<div ng-controller="MainCtrl">
+		
+			<!-- File selector -->
+			<file-selector 
+				url="url"
+				thumbnail-height="50"
+				thumbnail-width="50"
+				max-height="500"
+				max-width="500">
+			</file-selector>
+			
+			<cropper
+				url="url"
+				id="cropper-a"
+				canvas-width="300"
+				canvas-height="300"
+				cropper-height="100"
+				cropper-width="100">
+			</cropper>
+			
+			<!--  
+			<script type="text/javascript" src="/static/bundle.js"></script>
+			-->
+		
+		</div>
 	</body>
 </html>
