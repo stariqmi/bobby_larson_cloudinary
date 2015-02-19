@@ -1,17 +1,29 @@
 # Bobby Larson - Cloudinary
 
 ## OVERVIEW
-This application uses **npm** and **browserify** for dependency management and build. For strictly front-end dependencies, **bower** is used.
+The application uses two basic directives, the FileSelector and the Cropper.
 
-All the JavaScript required is defined in the **lib** folder. Running the command **npm run build** uses browserify to package all the JavaScript files into a single file **/static/bundle.js**. This file is included in index.html along with jquery and jquery-ui.
+The **FileSelector** needs to be added only once in the index.html. A FileSelector's input field is also passed to the Cloudinary Jquery plugin that uses it for upload.
 
-## COMPONENTS
+<file-selector 
+	url="url"
+	thumbnail-height="<CUSTOM>"
+	thumbnail-width="<CUSTOM>"
+	max-height="<CUSTOM>"
+	max-width="<CUSTOM>">
+</file-selector>
 
-The application has the following components:
+A **Cropper** can be added as many times as desired as long as each is given a unique id.
 
-- **FileSelector**:		(/lib/fileSelector.js) Select a file from the local file system and populates a thumbnail. 
-						It also triggers a **img-selected** event that is used to populate all the **Cropper**(s)
-- **Cropper**:			(/lib/cropper.js) Consists of a canvas element to display the image to be cropper and a 
-						draggable div representing the crop area. The image is reset everytime a new image is selected by the FileSelector
+<cropper
+	url="url"
+	id="<UNIQUE>"
+	canvas-width="<CUSTOM>"
+	canvas-height="<CUSTOM>"
+	cropper-height="<CUSTOM>"
+	cropper-width="<CUSTOM>">
+</cropper>
 
-Note: the file **lib/browser.js** is simply an entry point for the browserify. It defines an **initialize** function that sets up a FileSelector and Cropper(s) and call the function too.
+## WORKFLOW
+
+Once a valid file is selected from the local filesystem, it is immediately uploaded by Cloduniary Jquery Plugin. The application listens to the "cloudinarydone" event for a successful upload. Once the "cloudinarydone" event is fired, it adds a thumbnail and populates the Croppers with the selected image for cropping. Every time a cropper is moved, an event is fired with the crop coordinates to the root controller. The root controller keeps track of each Cropper's crop coordinates by it's ID. The submit button can be used to send the crop coordinates back to the server.

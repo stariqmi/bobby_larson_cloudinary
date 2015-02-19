@@ -6,6 +6,9 @@ app.directive('cropper', function() {
 			'url': '='
 		},
 		link: function(scope, element, attrs) {
+			// Register with controller
+			scope.$emit('register-cropper', attrs.id);
+
 			var img;
 
 			// Set wrapper div's dimensions
@@ -29,7 +32,14 @@ app.directive('cropper', function() {
 			cropper.on('dragstop', function(event, ui) {
 				var start_x = ui.offset.left - canvas.offset().left;
 				var start_y = ui.offset.top - canvas.offset().top;
-				console.log(start_x + ' , ' + start_y);
+				
+				scope.$emit('cropped', {
+					id: attrs.id,
+					start_x: start_x,
+					start_y: start_y,
+					end_x: start_x + parseInt(attrs.cropperWidth),
+					end_y: start_y + parseInt(attrs.cropperHeight)
+				});
 			});
 
 			// Watch url change

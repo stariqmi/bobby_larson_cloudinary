@@ -5,12 +5,23 @@
 		<!-- JS Libraries -->
 		<script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript" src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
+
+		<!-- Cloudinary Jquery Deps -->
+		<script src='/jquery_cloudinary/cloudinary_js/js/jquery.ui.widget.js' type='text/javascript'></script>
+		<script src='/jquery_cloudinary/cloudinary_js/js/jquery.iframe-transport.js' type='text/javascript'></script>
+		<script src='/jquery_cloudinary/cloudinary_js/js/jquery.fileupload.js' type='text/javascript'></script>
+		<script src='/jquery_cloudinary/cloudinary_js/js/jquery.cloudinary.js' type='text/javascript'></script>
+		
+		<script type="text/javascript">
+			$.cloudinary.config({ cloud_name: 'sample', api_key: '874837483274837'})
+		</script>
+
 		<script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
 
 		<!-- AngularJS components -->
 		<script type="text/javascript" src="/src/js/app.js"></script>
 		<script type="text/javascript" src="/src/js/directives/fileSelector.js"></script>
-		<script type="text/javascript" src="/src/js/directives/cropper.js"></script>
+		<script type="text/javascript" src="/src/js/directives/cropper.js"></script>	
 
 	</head>
 	<body ng-app="app">
@@ -34,10 +45,13 @@
 				cropper-width="100">
 			</cropper>
 			
+			<button id="submit" type="button" ng-click="submit()">SUBMIT</button>
 			<!--  
 			<script type="text/javascript" src="/static/bundle.js"></script>
 			-->
 		
 		</div>
+		<!-- Custom JS -->
+		<script type="text/javascript" src="/src/js/custom.js"></script>	
 	</body>
 </html>

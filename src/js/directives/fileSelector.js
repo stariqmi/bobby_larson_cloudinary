@@ -8,7 +8,8 @@ app.directive('fileSelector', function() {
 		link: function(scope, element, attrs) {
 
 			var file_input = element.find('input');
-			file_input.on('change', function() {
+			file_input.unsigned_cloudinary_upload("zcudy0uz", { cloud_name: 'demo', tags: 'browser_uploads' });
+			file_input.on('cloudinarydone', function() {
 				var regex = new RegExp('^image(.)*$');
 				if (this.files.length > 0 && regex.test(this.files[0].type)) {
 					
