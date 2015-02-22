@@ -13,7 +13,7 @@
 		<script src='/jquery_cloudinary/cloudinary_js/js/jquery.cloudinary.js' type='text/javascript'></script>
 		
 		<script type="text/javascript">
-			$.cloudinary.config({ cloud_name: 'sample', api_key: '874837483274837'})
+			// $.cloudinary.config({ cloud_name: 'sample', api_key: '874837483274837'})
 		</script>
 
 		<script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
@@ -30,6 +30,8 @@
 			<!-- File selector -->
 			<file-selector 
 				url="url"
+				upload-preset="the-larson-agency-llc"
+				cloud-name="171434419825437"
 				thumbnail-height="50"
 				thumbnail-width="50"
 				max-height="500"
@@ -46,12 +48,6 @@
 			</cropper>
 			
 			<button id="submit" type="button" ng-click="submit()">SUBMIT</button>
-			<!--  
-			<script type="text/javascript" src="/static/bundle.js"></script>
-			-->
-		
-		</div>
-		<!-- Custom JS -->
-		<script type="text/javascript" src="/src/js/custom.js"></script>	
+		</div>	
 	</body>
 </html>

@@ -8,6 +8,8 @@ The **FileSelector** needs to be added only once in the index.html. A FileSelect
 ```
 <file-selector 
 	url="url"
+	upload-preset="<CUSTOM>"
+	cloud-name="<CUSTOM>"
 	thumbnail-height="<CUSTOM>"
 	thumbnail-width="<CUSTOM>"
 	max-height="<CUSTOM>"

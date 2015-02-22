@@ -8,7 +8,7 @@ app.directive('fileSelector', function() {
 		link: function(scope, element, attrs) {
 
 			var file_input = element.find('input');
-			file_input.unsigned_cloudinary_upload("zcudy0uz", { cloud_name: 'demo', tags: 'browser_uploads' });
+			file_input.unsigned_cloudinary_upload(attrs.uploadPreset, { cloud_name: attrs.cloudName, tags: 'browser_uploads' });
 			file_input.on('cloudinarydone change', function() {
 				var regex = new RegExp('^image(.)*$');
 				if (this.files.length > 0 && regex.test(this.files[0].type)) {
@@ -36,7 +36,7 @@ app.directive('fileSelector', function() {
 							thumbnail.css('width', attrs.thumbnailWidth);
 							thumbnail.css('height', attrs.thumbnailHeight);
 						} else {
-							console.log('Image size is too big');
+							console.log('Image size is too big or file type is invalid');
 						}
 
 						// Remove object reference to delete Immage object
