@@ -5,6 +5,7 @@ The application uses two basic directives, the FileSelector and the Cropper.
 
 The **FileSelector** needs to be added only once in the index.html. A FileSelector's input field is also passed to the Cloudinary Jquery plugin that uses it for upload.
 
+```
 <file-selector 
 	url="url"
 	thumbnail-height="<CUSTOM>"
@@ -12,9 +13,11 @@ The **FileSelector** needs to be added only once in the index.html. A FileSelect
 	max-height="<CUSTOM>"
 	max-width="<CUSTOM>">
 </file-selector>
+```
 
 A **Cropper** can be added as many times as desired as long as each is given a unique id.
 
+```
 <cropper
 	url="url"
 	id="<UNIQUE>"
@@ -23,6 +26,7 @@ A **Cropper** can be added as many times as desired as long as each is given a u
 	cropper-height="<CUSTOM>"
 	cropper-width="<CUSTOM>">
 </cropper>
+```
 
 ## WORKFLOW
 
